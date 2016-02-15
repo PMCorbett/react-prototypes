@@ -18,12 +18,15 @@ var AudioCapture = React.createClass({
   },
 
   componentDidUpdate: function() {
-    console.log(this.props)
     if (this.props.MediaRecorderSupport) {
       this.mediaRecording = new MediaRecording(true, false, "audio/webm");
     }else {
       this.mediaRecording = new FlashAudioRecording();
     }
+  },
+
+  componentDidSomethingElse: function() {
+    this.mediaRecording.renderFlashObject();
   },
 
   startAudio: function() {

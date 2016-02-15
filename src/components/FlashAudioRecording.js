@@ -5,16 +5,20 @@ var FlashAudioRecording = class {
   constructor() {
     this.Recorder = Recorder;
     window.fwr_event_handler = (e) => {this.setFWREvents(e);};
-    var appWidth = 24;
-    var appHeight = 24;
-    var flashvars = {};
-    var params = {};
-    var attributes = {'id': "recorderApp", 'name': "recorderApp"};
+    this.renderFlashObject();
+  }
 
-    var flash_container = document.createElement('div');
-    document.querySelector('.capture').appendChild(flash_container);
-    swfobject.embedSWF("assets/recorder.swf", flash_container, appWidth, appHeight, "11.0.0", "", flashvars, params, attributes);
-
+  renderFlashObject() {
+    if (!document.getElementById('recorderApp')) {
+      var appWidth = 24;
+      var appHeight = 24;
+      var flashvars = {};
+      var params = {};
+      var attributes = {'id': "recorderApp", 'name': "recorderApp"};
+      var flash_container = document.createElement('div');
+      document.querySelector('.capture').appendChild(flash_container);
+      swfobject.embedSWF("assets/recorder.swf", flash_container, appWidth, appHeight, "11.0.0", "", flashvars, params, attributes);
+    }
   }
 
   setFWREvents() {
