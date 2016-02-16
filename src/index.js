@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './style.css';
-import Component from './components/component';
+import Media from './components/Media';
 
-ReactDOM.render(<Component name='Test' />, document.querySelector('#app'));
+ReactDOM.render(<Media />, document.querySelector('#app'));

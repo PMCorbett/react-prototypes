@@ -1,3 +1,88 @@
 body {
-  background: #bada55;
+  background: #eee;
+}
+
+.media {
+    margin: 0 auto;
+    width: 1200px;
+}
+.media_select {
+    display: flex;
+    justify-content: space-around;
+}
+.media img {
+    flex-direction: unset;
+}
+
+video.media_preview, img.media_preview {
+  width: 580px;
+  height:435px;
+}
+
+.capture {
+    display: flex;
+    justify-content: space-around;
+}
+.capture_buttons {
+    display: flex;
+    justify-content: space-around;
+    margin: 15px 0
+}
+
+.media_item button:hover {
+    background: #ABD400;
+}
+.media_item button {
+    height: 30px;
+    width: 150px;
+    border: none;
+    background: #30C8C0;
+    color: #fff;
+    border-radius: 6px;
+}
+
+.media_item {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #30c8c0;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.media_select a {
+    cursor: pointer;
+    text-align: center;
+    width: 33.3%;
+}
+.media_select a:hover, .media_select a.active {
+    background: #30c8c0 none repeat scroll 0 0;
+}
+.record {
+  height: 100px;
+  width: 100px;
+  cursor: pointer;
+}
+.audio.record {
+  background: url("/assets/media_audio.png") no-repeat scroll center center, radial-gradient(#30c8c0 3%, transparent, transparent);
+}
+.audio.record:hover {
+  background: url("/assets/media_audio.png") no-repeat scroll center center, radial-gradient(#bada55 3%, transparent, transparent);
+}
+.audio.record.active {
+  background: url("/assets/media_audio.png") no-repeat scroll center center, radial-gradient(#A80B0B 3%, transparent, transparent);
+}
+
+.video.record {
+  background: url("/assets/media_video.png") no-repeat scroll center center, radial-gradient(#30c8c0 3%, transparent, transparent);
+}
+.video.record:hover {
+  background: url("/assets/media_video.png") no-repeat scroll center center, radial-gradient(#bada55 3%, transparent, transparent);
+}
+.video.record.active {
+  background: url("/assets/media_video.png") no-repeat scroll center center, radial-gradient(#A80B0B 3%, transparent, transparent);
+}
+
+.image.record {
+  background: url("/assets/media_photo.png") no-repeat scroll center center, radial-gradient(#30c8c0 3%, transparent, transparent);
+}
+.image.record:hover {
+  background: url("/assets/media_photo.png") no-repeat scroll center center, radial-gradient(#bada55 3%, transparent, transparent);
 }
