@@ -17,7 +17,7 @@ var AudioCapture = React.createClass({
     })
   },
 
-  componentDidUpdate: function() {
+  componentDidMount: function() {
     if (this.props.MediaRecorderSupport) {
       this.mediaRecording = new MediaRecording(true, false, "audio/webm");
     }else {
@@ -76,7 +76,7 @@ var AudioCapture = React.createClass({
   render: function() {
     return (
       <div className="AudioCapture">
-        <h1>Audio Capture</h1>
+        {/*<h1>Audio Capture</h1>*/}
         <div className="capture_buttons" >
           <a onClick={this.toggleRecording} className={this.state.recording ? "audio record active" : "audio record inactive"}></a>
         </div>

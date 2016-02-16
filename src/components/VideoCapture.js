@@ -1,6 +1,7 @@
 import React from "react";
 import Webcam from './Webcam';
 import MediaRecording from "./MediaRecording";
+import FlashVideoRecording from "./FlashVideoRecording";
 
 var VideoCapture = React.createClass({
 
@@ -18,11 +19,19 @@ var VideoCapture = React.createClass({
   },
 
   componentDidMount: function() {
-    this.mediaRecording = new MediaRecording(true, true, "video/webm");
+    if (this.props.MediaRecorderSupport) {
+      this.mediaRecording = new MediaRecording(true, true, "video/webm");
+    }else {
+      this.mediaRecording = new FlashVideoRecording();
+    }
   },
 
-  handleUserMedia: function() {
-    this.mediaRecording.handleUserMedia();
+  // handleUserMedia: function() {
+  //   this.mediaRecording.handleUserMedia();
+  // },
+
+  onUserMedia: function() {
+    //Do nothing
   },
 
   startVideo: function() {
@@ -48,7 +57,18 @@ var VideoCapture = React.createClass({
   },
 
   saveVideo: function() {
-    this.mediaRecording.save();
+    var blob = this.mediaRecording.getBlob();
+    var url = window.URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.style.display = 'none';
+    a.href = url;
+    a.download = 'test.webm';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function() {
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+    }, 100);
   },
 
   uploadFile: function() {
@@ -58,8 +78,8 @@ var VideoCapture = React.createClass({
   render: function() {
     return (
       <div className="VideoCapture">
-        <h1>Video Capture</h1>
-        <h1>{this.props.MediaRecorderSupport ? "Supports MediaRecorder" : "Not Supported"}</h1>
+        {/*<h1>Video Capture</h1>*/}
+        {/*<h1>{this.props.MediaRecorderSupport ? "Supports MediaRecorder" : "Not Supported"}</h1>*/}
         <div className="capture_buttons" >
           <a onClick={this.toggleRecording} className={this.state.recording ? "video record active" : "video record inactive"}></a>
         </div>
@@ -67,10 +87,10 @@ var VideoCapture = React.createClass({
           <Webcam
             ref="webcam"
             audio={true}
-            height="450"
-            width="600"
+            height="435"
+            width="580"
             screenshotFormat="image/png"
-            onUserMedia={this.handleUserMedia}
+            onUserMedia={this.onUserMedia}
             className="webcam_video"
           />
           <video

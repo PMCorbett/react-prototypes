@@ -82,8 +82,8 @@ var MediaRecording = class {
     return window.URL.createObjectURL(superBuffer);
   }
 
-  save() {
-    return new Blob(this.recordedChunks, {type: 'audio/webm'});
+  getBlob() {
+    return new Blob(this.recordedChunks, {type: this.mimeType});
   }
 
   upload() {

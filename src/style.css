@@ -1,5 +1,5 @@
 body {
-  background: #bada55;
+  background: #eee;
 }
 
 .media {
@@ -12,6 +12,11 @@ body {
 }
 .media img {
     flex-direction: unset;
+}
+
+video.media_preview, img.media_preview {
+  width: 580px;
+  height:435px;
 }
 
 .capture {
@@ -37,7 +42,7 @@ body {
 }
 
 .media_item {
-    background: #eee none repeat scroll 0 0;
+    background: #fff none repeat scroll 0 0;
     border: 1px solid #30c8c0;
     box-sizing: border-box;
     padding: 10px;
@@ -58,12 +63,26 @@ body {
 .audio.record {
   background: url("/assets/media_audio.png") no-repeat scroll center center, radial-gradient(#30c8c0 3%, transparent, transparent);
 }
+.audio.record:hover {
+  background: url("/assets/media_audio.png") no-repeat scroll center center, radial-gradient(#bada55 3%, transparent, transparent);
+}
 .audio.record.active {
   background: url("/assets/media_audio.png") no-repeat scroll center center, radial-gradient(#A80B0B 3%, transparent, transparent);
 }
+
 .video.record {
   background: url("/assets/media_video.png") no-repeat scroll center center, radial-gradient(#30c8c0 3%, transparent, transparent);
 }
+.video.record:hover {
+  background: url("/assets/media_video.png") no-repeat scroll center center, radial-gradient(#bada55 3%, transparent, transparent);
+}
 .video.record.active {
   background: url("/assets/media_video.png") no-repeat scroll center center, radial-gradient(#A80B0B 3%, transparent, transparent);
+}
+
+.image.record {
+  background: url("/assets/media_photo.png") no-repeat scroll center center, radial-gradient(#30c8c0 3%, transparent, transparent);
+}
+.image.record:hover {
+  background: url("/assets/media_photo.png") no-repeat scroll center center, radial-gradient(#bada55 3%, transparent, transparent);
 }
